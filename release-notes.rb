@@ -67,7 +67,7 @@ output += "<ul>" + messages.map { |msg| "<li>#{msg}</li>" }.join("\n") + "</ul>"
 
 messages = this_version_prs.map do |pr|
   msg = "[#{pr[:title]}](#{pr[:url]})"
-  msg += " (JIRA Ticket: [#{pr[:jira_id]}](#{jira_base_url}/#{pr[:jira_id]}])" if pr[:jira_id]
+  msg += " (JIRA Ticket: [#{pr[:jira_id]}](#{jira_base_url}/#{pr[:jira_id]}))" if pr[:jira_id]
   msg
 end
 
