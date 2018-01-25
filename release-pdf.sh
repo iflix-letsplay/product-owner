@@ -1,8 +1,11 @@
 #!/bin/bash
-if [ $# -ne 2 ]; then
-    echo 'usage: ./release-pdf.sh <release version> <pdf name>'
+set -e
+if [ -z "$PO_TOKEN" ]; then echo "PO_TOKEN is unset"; fi
+
+if [ $# -ne 2 ] || [  -z "$PO_TOKEN" ]; then
+    echo 'usage: PO_TOKEN=<private po token> ./release-pdf.sh <release version> <pdf name>'
     exit 1
 fi
-bundle install && PO_TOKEN=cea9a05c311ed1996b973477f01773f847047f37 bundle exec ruby release-notes.rb $1 > $2.md
+bundle install && bundle exec ruby release-notes.rb $1 > $2.md
 mdpdf $2.md
 rm $2.md
