@@ -3,9 +3,22 @@ set -e
 if [ -z "$PO_TOKEN" ]; then echo "PO_TOKEN is unset"; fi
 
 if [ $# -ne 2 ] || [  -z "$PO_TOKEN" ]; then
-    echo 'usage: PO_TOKEN=<private po token> ./release-pdf.sh <release version> <pdf name>'
+    echo 'usage: PO_TOKEN=<private po token> ./release-pdf.sh <i||a> <release version>'
     exit 1
 fi
-bundle install && bundle exec ruby release-notes.rb $1 > $2.md
-mdpdf $2.md
-rm $2.md
+if [ "$1" = "a" ]; then
+	FILENAME="Android"
+	REPO='iflix-letsplay/iflix-android'
+elif [ "$1" = "i" ]; then
+	FILENAME="iOS"
+	REPO='iflix-letsplay/apple-ios'
+else
+	echo 'first arg must be "i" for iOS or "a" for Android'	
+	exit 1
+fi
+
+FILENAME=$FILENAME-$2--Release-Notes
+echo $FILENAME
+bundle install && bundle exec ruby release-notes.rb $2 $REPO> $FILENAME.md
+mdpdf $FILENAME.md
+rm $FILENAME.md
