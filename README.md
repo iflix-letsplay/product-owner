@@ -29,6 +29,7 @@ chmod +x  release-pdf.sh
 ```
 
 ## usage 
+
 PO_TOKEN=<private po token> ./release-pdf.sh <i||a> <release version> 
 
 eg. ```PO_TOKEN=abc123 ./release-pdf.sh i 2.42.0``` 
