@@ -19,6 +19,7 @@ fi
 
 FILENAME=$FILENAME-$2--Release-Notes
 echo $FILENAME
+cd workspace
 gem install bundler
 bundle install && bundle exec ruby release-notes.rb $2 $REPO> $FILENAME.md
 mdpdf $FILENAME.md
