@@ -4,6 +4,6 @@ RUN apt-get update
 RUN apt-get -y install curl
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash
 RUN apt-get -y install nodejs
-RUN npm install mdpdf@1.7.3 -g
+RUN npm install mdpdf -g
 ENTRYPOINT ["/workspace/release-pdf.sh"]
 CMD [ ]
