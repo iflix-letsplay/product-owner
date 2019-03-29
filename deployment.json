@@ -1,0 +1,31 @@
+{
+  "agent": {
+    "stack": "iflix-elastic-ci"
+  },
+  "steps": [
+    {
+      "name": "docker_build",
+      "image": "release-notes"
+    },
+    {
+      "name": "docker_tag",
+      "image": "release-notes",
+      "force": true,
+      "oldTag": "latest",
+      "newTag": "${BUILDKITE_BRANCH}-${BUILDKITE_BUILD_NUMBER}"
+    },
+    {
+      "name": "ecr_create_repo",
+      "repositoryName": "release-notes"
+    },
+    {
+      "name": "docker_push",
+      "image": "release-notes"
+    },
+    {
+      "name": "docker_push",
+      "image": "release-notes",
+      "tag": "${BUILDKITE_BRANCH}-${BUILDKITE_BUILD_NUMBER}"
+    }
+  ]
+}
