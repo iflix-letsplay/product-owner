@@ -2,16 +2,17 @@ require 'octokit'
 
 usage = <<USAGE
 \n\nUsage:
-\tPO_TOKEN=1234 ruby release-notes.rb release_number'
+\tPO_TOKEN=1234 ruby release-notes.rb release_number repo'
 USAGE
 
 release = ARGV[0]
+repo = ARGV[1]
 
 raise usage if release.nil?
+raise usage if repo.nil?
 raise usage if ENV['PO_TOKEN'].nil?
 
 # TODO: make these values configurable via ARGV or something
-repo = 'iflix-letsplay/apple-ios'
 jira_base_url = 'https://teamiflix.atlassian.net/browse'
 
 # Init an Octokit client with a token with access to the repo you want to

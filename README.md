@@ -29,8 +29,9 @@ chmod +x  release-pdf.sh
 ```
 
 ## usage 
-PO_TOKEN=<private po token> ./release-pdf.sh <release version> <pdf name> 
 
-eg. ```PO_TOKEN=abc123 ./release-pdf.sh "2.42.0" "iOS-2.42.0--RC-1--BUILD-15065--Release-Notes"``` 
+PO_TOKEN=<private po token> ./release-pdf.sh <i||a> <release version> 
 
-the pdf name contains the release version, cadidate version and build version
+eg. ```PO_TOKEN=abc123 ./release-pdf.sh i 2.42.0``` 
+
+the first arg must be "i" for iOS or "a" for Android
