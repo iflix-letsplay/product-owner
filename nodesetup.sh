@@ -106,9 +106,6 @@ ${bold}${NODENAME} is no longer actively supported!${normal}
     ${bold}https://github.com/nodesource/distributions${normal}
 "
         echo
-        echo "Continuing in 20 seconds ..."
-        echo
-        sleep 20
     fi
 }
 
@@ -177,7 +174,7 @@ fi
 
 # Populating Cache
 print_status "Populating apt-get cache..."
-exec_cmd 'apt-get update'
+exec_cmd 'apt-get -o Acquire::Check-Valid-Until=false update'
 
 if [ "X${PRE_INSTALL_PKGS}" != "X" ]; then
     print_status "Installing packages required for setup:${PRE_INSTALL_PKGS}..."
