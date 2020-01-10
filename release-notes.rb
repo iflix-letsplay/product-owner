@@ -11,7 +11,7 @@ raise usage if release.nil?
 raise usage if ENV['PO_TOKEN'].nil?
 
 # TODO: make these values configurable via ARGV or something
-repo = 'iflix-letsplay/apple-ios'
+repo = 'iflix/apple-ios'
 jira_base_url = 'https://teamiflix.atlassian.net/browse'
 
 # Init an Octokit client with a token with access to the repo you want to

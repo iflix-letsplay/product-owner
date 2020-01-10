@@ -17,8 +17,8 @@ PO_TOKEN=... bundle exec ruby todays-prs.rb
 get ruby, node and other dependencies
 ```sh
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
-rvm install "ruby-2.3.1"
-rvm use 2.3.1
+rvm install "ruby-2.7.0"
+rvm use 2.7.0
 gem install bundler
 
 #install node https://nodejs.org/en/download
@@ -33,4 +33,4 @@ PO_TOKEN=<private po token> ./release-pdf.sh <release version> <pdf name>
 
 eg. ```PO_TOKEN=abc123 ./release-pdf.sh "2.42.0" "iOS-2.42.0--RC-1--BUILD-15065--Release-Notes"``` 
 
-the pdf name contains the release version, cadidate version and build version
+the pdf name contains the release version, candidate version and build version
