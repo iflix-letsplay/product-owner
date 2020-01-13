@@ -17,8 +17,8 @@ PO_TOKEN=... bundle exec ruby todays-prs.rb
 get ruby, node and other dependencies
 ```sh
 curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
-rvm install "ruby-2.6.5"
-rvm use 2.6.5
+rvm install "ruby-2.7.0"
+rvm use 2.7.0
 gem install bundler
 
 #install node https://nodejs.org/en/download
